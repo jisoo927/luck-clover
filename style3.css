@@ -1,0 +1,321 @@
+
+/* 전체 배경 */
+body {
+  background-color: #f4f5e9;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* 전체 상자 */
+.container {
+  width: 350px;
+  margin: 80px auto;
+  padding: 40px 20px;
+  background-color: #fffdf5;
+  border-radius: 25px;
+}
+
+/* 작은 영어 문구 */
+.sub {
+  color: #9aab86;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+/* 제목 */
+h1 {
+  color: #58764d;
+  font-size: 32px;
+}
+
+/* 네잎클로버 공간 */
+.clover {
+  position: relative;
+  width: 180px;
+  height: 190px;
+  margin: 30px auto;
+}
+
+/* 클로버 잎 */
+.leaf {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  background-color: #82a878;
+  border-radius: 50% 50% 10% 50%;
+}
+
+/* 잎의 위치 */
+.leaf1 {
+  top: 15px;
+  left: 25px;
+  transform: rotate(0deg);
+}
+
+.leaf2 {
+  top: 15px;
+  right: 25px;
+  transform: rotate(90deg);
+}
+
+.leaf3 {
+  bottom: 45px;
+  left: 25px;
+  transform: rotate(-90deg);
+}
+
+.leaf4 {
+  bottom: 45px;
+  right: 25px;
+  transform: rotate(180deg);
+}
+
+/* 줄기 */
+.stem {
+  position: absolute;
+  width: 7px;
+  height: 65px;
+  background-color: #668c5c;
+  bottom: 0;
+  left: 87px;
+  transform: rotate(10deg);
+  border-radius: 10px;
+}
+
+/* 응원 문구 */
+h2 {
+  color: #58764d;
+  font-size: 19px;
+}
+
+.message {
+  color: #84947a;
+  line-height: 2;
+  font-size: 14px;
+}
+
+/* 마지막 문구 */
+.footer {
+  color: #a3b397;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 35px;
+}
+
+/* 체크박스 숨기기 */
+#open-letter {
+  display: none;
+}
+
+/* 클로버 클릭 가능하게 하기 */
+.clover {
+  position: relative;
+  display: block;
+  width: 180px;
+  height: 190px;
+  margin: 30px auto;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+/* 마우스를 올렸을 때 */
+.clover:hover {
+  scale: 1.1;
+}
+
+/* 편지 기본 상태 */
+
+/* 편지 디자인 */
+.letter {
+  display: none;
+  background-color: #fffdf5;
+  padding: 30px 20px;
+  margin-top: 30px;
+  border: 1px solid #e5e8d9;
+  border-radius: 5px;
+  color: #58764d;
+  line-height: 2;
+  box-shadow: 0 5px 15px rgba(80, 100, 70, 0.08);
+}
+
+/* 편지 등장 */
+#open-letter:checked ~ .letter {
+  display: block;
+  animation: letter-open 0.8s ease;
+}
+
+/* 편지 펼쳐지는 효과 */
+@keyframes letter-open {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 편지 위쪽 작은 글씨 */
+.letter-top {
+  color: #a2b393;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+/* 편지 제목 */
+.letter h2 {
+  font-size: 19px;
+  margin: 20px 0;
+}
+
+/* 구분선 */
+.letter-line {
+  width: 50px;
+  height: 2px;
+  background-color: #b5c6a8;
+  margin: 15px auto;
+}
+
+/* 편지 내용 */
+.letter p {
+  font-size: 13px;
+  color: #788a70;
+  margin: 20px 0;
+}
+
+/* 마지막 문구 */
+.letter-bottom {
+  color: #8ca47e;
+  font-size: 13px;
+  margin-top: 25px;
+}
+
+
+/* 클로버를 클릭하면 편지 나타나기 */
+#open-letter:checked ~ .letter {
+  display: block;
+}
+
+/* 편지 등장 효과 */
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 클로버 흔들림 */
+.clover {
+  transform-origin: center bottom;
+  animation: sway 3s ease-in-out infinite;
+}
+
+/* 좌우로 움직이기 */
+@keyframes sway {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(5deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* 배경 클로버 */
+.floating-clovers {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 작은 클로버 */
+.floating-clovers span {
+  position: absolute;
+  color: #8caf85;
+  font-size: 25px;
+  opacity: 0.35;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* 클로버 위치 */
+.floating-clovers span:nth-child(1) {
+  top: 15%;
+  left: 10%;
+}
+
+.floating-clovers span:nth-child(2) {
+  top: 30%;
+  right: 12%;
+  animation-delay: 1s;
+}
+
+.floating-clovers span:nth-child(3) {
+  top: 65%;
+  left: 15%;
+  animation-delay: 2s;
+}
+
+.floating-clovers span:nth-child(4) {
+  top: 75%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+.floating-clovers span:nth-child(5) {
+  top: 45%;
+  left: 5%;
+  animation-delay: 1.5s;
+}
+
+.floating-clovers span:nth-child(6) {
+  top: 85%;
+  right: 25%;
+  animation-delay: 2.5s;
+}
+
+/* 위아래로 둥둥 움직이기 */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+.click-guide {
+  color: #a0af93;
+  font-size: 12px;
+  letter-spacing: 1px;
+  animation: guide 2s infinite;
+}
+
+/* @keyframes guide {
+  50% {
+    opacity: 0.4;
+  }
+} */
